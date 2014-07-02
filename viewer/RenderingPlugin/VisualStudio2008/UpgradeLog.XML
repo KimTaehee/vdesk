@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="RenderingPlugin">
+</Property><Property Name="솔루션 파일" Value="C:\Users\Dekaf\Desktop\task\RenderingPluginExample42\RenderingPlugin\VisualStudio2008\RenderingPlugin.sln">
+</Property><Property Name="Date" Value="2014년 2월 5일 수요일">
+</Property><Property Name="Time" Value="오후 13:23">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="RenderingPlugin.sln" Description="파일을 C:\Users\Dekaf\Desktop\task\RenderingPluginExample42\RenderingPlugin\VisualStudio2008\RenderingPlugin.sln.old(으)로 백업했습니다.">
+</Event><Event ErrorLevel="0" Project="RenderingPlugin" Source="RenderingPlugin.vcproj" Description="Converting project file 'C:\Users\Dekaf\Desktop\task\RenderingPluginExample42\RenderingPlugin\VisualStudio2008\RenderingPlugin.vcproj'.">
+</Event><Event ErrorLevel="1" Project="RenderingPlugin" Source="RenderingPlugin.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="RenderingPlugin" Source="RenderingPlugin.vcproj" Description="Done converting to new project file 'C:\Users\Dekaf\Desktop\task\RenderingPluginExample42\RenderingPlugin\VisualStudio2008\RenderingPlugin.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="RenderingPlugin" Source="RenderingPlugin.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="RenderingPlugin.sln" Description="솔루션을 변환했습니다.">
+</Event><Event ErrorLevel="3" Project="" Source="RenderingPlugin.sln" Description="Converted">
+</Event></UpgradeLog>

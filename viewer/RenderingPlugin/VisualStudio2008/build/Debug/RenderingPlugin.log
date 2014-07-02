@@ -1,0 +1,57 @@
+﻿빌드 시작: 2014-06-22 오후 10:13:58
+     1>3 노드의 "D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\RenderingPlugin.vcxproj" 프로젝트(rebuild 대상)입니다.
+     1>_PrepareForClean:
+         "build/Debug\RenderingPlugin.lastbuildstate" 파일을 삭제하고 있습니다.
+       InitializeBuildStatus:
+         "AlwaysCreate"이(가) 지정되었기 때문에 "build/Debug\RenderingPlugin.unsuccessfulbuild"을(를) 만들고 있습니다.
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D RENDERINGPLUGIN_EXPORTS /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"build/Debug\\" /Fd"build/Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\Interface.cpp ..\RenderingPlugin.cpp ..\videomemory.cpp ..\vx_driver.cpp
+         vx_driver.cpp
+     1>d:\vdesk\vdeskproto\prototype\renderingplugin\vx_driver.cpp(70): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 'strcpy' 선언을 참조하십시오.
+     1>d:\vdesk\vdeskproto\prototype\renderingplugin\vx_driver.cpp(71): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 'strcpy' 선언을 참조하십시오.
+         videomemory.cpp
+         RenderingPlugin.cpp
+     1>d:\vdesk\vdeskproto\prototype\renderingplugin\renderingplugin.cpp(38): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' 선언을 참조하십시오.
+     1>d:\vdesk\vdeskproto\prototype\renderingplugin\renderingplugin.cpp(88): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' 선언을 참조하십시오.
+     1>d:\vdesk\vdeskproto\prototype\renderingplugin\renderingplugin.cpp(172): warning C4018: '<' : signed 또는 unsigned가 일치하지 않습니다.
+     1>d:\vdesk\vdeskproto\prototype\renderingplugin\renderingplugin.cpp(187): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(371) : 'sprintf' 선언을 참조하십시오.
+     1>d:\vdesk\vdeskproto\prototype\renderingplugin\renderingplugin.cpp(399): warning C4018: '>' : signed 또는 unsigned가 일치하지 않습니다.
+     1>d:\vdesk\vdeskproto\prototype\renderingplugin\renderingplugin.cpp(396): warning C4101: 'vv' :참조되지 않은 지역 변수입니다.
+         Interface.cpp
+     1>d:\vdesk\vdeskproto\prototype\renderingplugin\interface.cpp(20): warning C4018: '>' : signed 또는 unsigned가 일치하지 않습니다.
+     1>d:\vdesk\vdeskproto\prototype\renderingplugin\interface.cpp(34): warning C4018: '>' : signed 또는 unsigned가 일치하지 않습니다.
+         코드를 생성하고 있습니다...
+       ManifestResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"build/Debug\RenderingPlugin.dll.embed.manifest.res" build/Debug\RenderingPlugin_manifest.rc 
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\build/Debug\RenderingPlugin.dll" /INCREMENTAL /NOLOGO opengl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"build/Debug\RenderingPlugin.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\build\Debug\RenderingPlugin.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\build/Debug\RenderingPlugin.lib" /MACHINE:X86 /DLL build/Debug\RenderingPlugin.dll.embed.manifest.res
+         build/Debug\Interface.obj
+         build/Debug\RenderingPlugin.obj
+         build/Debug\videomemory.obj
+         build/Debug\vx_driver.obj
+            D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\build/Debug\RenderingPlugin.lib 라이브러리 및 D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\build/Debug\RenderingPlugin.exp 개체를 생성하고 있습니다.
+       Manifest:
+         "build/Debug\RenderingPlugin.dll.embed.manifest" 파일을 삭제하고 있습니다.
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"build/Debug\RenderingPlugin.dll.embed.manifest" /manifest build/Debug\RenderingPlugin.dll.intermediate.manifest
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"build/Debug\RenderingPlugin.dll.embed.manifest.res" build/Debug\RenderingPlugin_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\build/Debug\RenderingPlugin.dll" /INCREMENTAL /NOLOGO opengl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"build/Debug\RenderingPlugin.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\build\Debug\RenderingPlugin.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\build/Debug\RenderingPlugin.lib" /MACHINE:X86 /DLL build/Debug\RenderingPlugin.dll.embed.manifest.res
+         build/Debug\Interface.obj
+         build/Debug\RenderingPlugin.obj
+         build/Debug\videomemory.obj
+         build/Debug\vx_driver.obj
+            D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\build/Debug\RenderingPlugin.lib 라이브러리 및 D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\build/Debug\RenderingPlugin.exp 개체를 생성하고 있습니다.
+         RenderingPlugin.vcxproj -> D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\build/Debug\RenderingPlugin.dll
+       FinalizeBuildStatus:
+         "build/Debug\RenderingPlugin.unsuccessfulbuild" 파일을 삭제하고 있습니다.
+         "build/Debug\RenderingPlugin.lastbuildstate"에 연결(touching)하고 있습니다.
+     1>"D:\Vdesk\vdeskproto\prototype\RenderingPlugin\VisualStudio2008\RenderingPlugin.vcxproj" 프로젝트를 빌드했습니다(rebuild 대상).
+
+빌드했습니다.
+
+경과 시간: 00:00:04.48
