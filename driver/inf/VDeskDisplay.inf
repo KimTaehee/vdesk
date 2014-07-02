@@ -1,0 +1,79 @@
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Provider=%BLEVDESK%
+ClassGUID={4D36E968-E325-11CE-BFC1-08002BE10318}
+Class=Display
+DriverPackageType=PlugAndPlay
+DriverVer = 02/04/2014,0.2.3
+
+[DestinationDirs]
+DefaultDestDir=11
+VDeskDisplay.Miniport = 12 ; drivers
+VDeskDisplay.Display  = 11 ; system32
+
+[Manufacturer]
+%BLEVDESK%=Model
+
+[Model]
+%VDeskDisplay.SvcDesc% = VDeskDisplay, VDeskDisplay
+
+
+[VDeskDisplay]
+CopyFiles = VDeskDisplay.Miniport, VDeskDisplay.Display
+
+[VDeskDisplay.Miniport]
+VDeskDisplay.sys,,,0x100
+
+[VDeskDisplay.Display]
+VDeskDisplayVideo.dll,,,0x00004000  ; COPYFLG_IN_USE_TRY_RENAME
+
+[VDeskDisplay.Services]
+AddService=VDeskDisplay, 0x00000002, VDeskDisplay_Service_Inst, VDeskDisplay_EventLog_Inst
+
+[VDeskDisplay_Service_Inst]
+ServiceType=1                   ; SERVICE_KERNEL_DRIVER
+StartType=3                     ; SERVICE_DEMAND_START
+ErrorControl=0                  ; SERVICE_ERROR_IGNORE
+LoadOrderGroup=Video
+ServiceBinary=%12%\VDeskDisplay.sys
+
+[VDeskDisplay_EventLog_Inst]
+AddReg = VDeskDisplay_EventLog_AddReg
+
+[VDeskDisplay_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%SystemRoot%\System32\IoLogMsg.dll;%SystemRoot%\System32\drivers\VDeskDisplay.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[VDeskDisplay.SoftwareSettings]
+AddReg = VDeskDisplay_SoftwareDeviceSettings
+
+;VDeskDisplayVideo는 dll의 이름과 동일
+[VDeskDisplay_SoftwareDeviceSettings]
+HKR,, InstalledDisplayDrivers, %REG_MULTI_SZ%, VDeskDisplayVideo
+; Set 'Full' hardware acceleration up. On W2003 the level is by default None=5, leading to software mouse cursor
+HKR,, Acceleration.Level, %REG_DWORD%, 0
+HKR,, VgaCompatible, %REG_DWORD%, 0
+HKR,, MirrorDriver, %REG_DWORD%, 1
+
+[VDeskDisplay.OpenGLSoftwareSettings]
+
+[SourceDisksNames]
+1 = %VDeskDisplay.Disk%,,,""
+2 = %VDeskDisplay.Disk%,,,""
+
+[SourceDisksFiles]
+VDeskDisplay.sys = 1
+VDeskDisplayVideo.dll = 2
+
+[Strings]
+REG_SZ = 0x00000000
+REG_MULTI_SZ = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_BINARY = 0x00000001
+REG_DWORD = 0x00010001
+
+BLEVDESK = "V-Desk"
+VDeskDisplay.Disk = "V-Desk Driver Disk"
+VDeskDisplay.SvcDesc = "V-Desk Display Adapter"

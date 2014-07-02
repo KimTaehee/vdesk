@@ -1,0 +1,17 @@
+할일
+1. 변화감지 어떻게 할지 결정
+2. 통신 인터페이스 문제 해결
+(Miniport Driver를 거치지 않고 ExtEscape 사용하여 주요정보 캐치. Paging,Addressing 문제 없는지 확인)
+3. 가상 Framebuffer 출력부 라이브러리 개발
+
+
+완료
+1. Multi Resolution 지원
+2. Video.dat 파일 내 해당 해상도 보관
+
+주의
+1.
+
+참고자료
+http://support.microsoft.com/kb/308216/ko
+http://msdn.microsoft.com/en-us/library/windows/desktop/dd183490(v=vs.85).aspx
