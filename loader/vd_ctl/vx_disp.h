@@ -22,6 +22,7 @@ private:
 
 private:
 	int aeroctrl(BOOL enable);
+
 public:
 	int init(void);
 	int mon_begin(void);
@@ -32,4 +33,5 @@ public:
 	int SetDriverName(std::string drvname);
 	int SetHardwareID(std::string hdwid);
 	BOOL FindDeviceName(char *driverName);
+	bool changePrimaryMonitor();
 };

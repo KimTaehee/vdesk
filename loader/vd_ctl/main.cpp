@@ -85,6 +85,9 @@ int main(int argc,char **argv)
 		Sleep(1000);	//모니터가 정상적으로 확장될때까지 기다림
 		argm = "protype.exe ";
 		argm += g_conf.launcher_opt;
+
+		vx.changePrimaryMonitor();
+
 		if(!executeCommandLine(argm.c_str(),exitCode))
 			MessageBox(NULL,"Fail!","Error",MB_OK);
 	}

@@ -228,6 +228,74 @@ int CVxDispDrv::aeroctrl(BOOL enable)
 	return ret;
 }
 
+bool CVxDispDrv::changePrimaryMonitor()
+{
+	DWORD DispNum = 0;
+    DISPLAY_DEVICE DisplayDevice;
+    DEVMODE defaultMode;
+    HDC hdc;
+    int nWidth, nHeight;
+    BOOL bFoundSecondary = FALSE;
+	
+	hdc = GetDC(0);
+    nWidth = GetDeviceCaps(hdc,HORZRES);
+	nHeight = GetDeviceCaps(hdc,VERTRES);
+    ReleaseDC(0,hdc);
+
+	// Initialize DisplayDevice.
+    ZeroMemory(&DisplayDevice, sizeof(DisplayDevice));
+    DisplayDevice.cb = sizeof(DisplayDevice);
+
+	// Get display devices.
+    while ((EnumDisplayDevices(NULL, DispNum, &DisplayDevice, 0)) &&
+           (bFoundSecondary == FALSE))
+    { 
+        ZeroMemory(&defaultMode, sizeof(DEVMODE));
+        defaultMode.dmSize = sizeof(DEVMODE);
+        if (!EnumDisplaySettings((LPSTR)DisplayDevice.DeviceName,
+             ENUM_REGISTRY_SETTINGS, &defaultMode))
+            return FALSE; // Store default failed
+
+		printf("DispNum : %d ", DispNum);
+		printf("%s \n", (LPSTR)DisplayDevice.DeviceName);
+		
+		if ((DisplayDevice.StateFlags & DISPLAY_DEVICE_PRIMARY_DEVICE) && (DisplayDevice.StateFlags & DISPLAY_DEVICE_ACTIVE))
+		{
+			defaultMode.dmFields = DM_POSITION; 
+			//defaultMode.dmPosition.x += nWidth;
+			//defaultMode.dmPosition.x -= nWidth;
+			//defaultMode.dmPosition.y = 0;
+			defaultMode.dmPosition.x = -1024;
+			defaultMode.dmPosition.y = 0;
+
+			ChangeDisplaySettingsEx((LPSTR)DisplayDevice.DeviceName, 
+                    &defaultMode, NULL, CDS_UPDATEREGISTRY|CDS_SET_PRIMARY, NULL); 
+			
+			// A second call to ChangeDisplaySettings updates the monitor.
+			//ChangeDisplaySettings(NULL, 0); 
+
+			printf("I changed PRIMARY DEVICE\n");
+
+			bFoundSecondary = TRUE;
+
+			//DispNum++;
+			//EnumDisplayDevices(NULL, DispNum, &DisplayDevice, 0);
+		}
+		
+		defaultMode.dmFields = DM_POSITION; 
+		
+		printf("x : %d, y : %d\n", defaultMode.dmPosition.x, defaultMode.dmPosition.y);
+		
+        // Reinitialize DisplayDevice. 
+        ZeroMemory(&DisplayDevice, sizeof(DisplayDevice));
+        DisplayDevice.cb = sizeof(DisplayDevice);
+        DispNum++;
+    } // End while the display devices. 
+
+	return true;
+}
+
+
 
 int CVxDispDrv::init(void)
 {
