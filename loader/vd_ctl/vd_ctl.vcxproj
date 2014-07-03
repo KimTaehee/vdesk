@@ -87,10 +87,15 @@
   <ItemGroup>
     <ClInclude Include="Common.h" />
     <ClInclude Include="iniFile\iniFile.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="vx_disp.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="icon_transparent.ico" />
     <None Include="setting.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="vd_ctl.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

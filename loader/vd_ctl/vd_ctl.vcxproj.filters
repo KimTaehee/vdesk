@@ -38,10 +38,21 @@
     <ClInclude Include="iniFile\iniFile.h">
       <Filter>소스 파일</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="setting.ini">
       <Filter>리소스 파일</Filter>
     </None>
+    <None Include="icon_transparent.ico">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="vd_ctl.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
