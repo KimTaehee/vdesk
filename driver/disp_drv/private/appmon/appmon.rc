@@ -1,0 +1,16 @@
+#include <windows.h>
+#include "appmon.h"
+
+IDDCONFIGBOX DIALOG DISCARDABLE  0, 0, 116, 90
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Configure Second Monitor"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "PID",-1,19,6,20,8
+    EDITTEXT        IDPID,19,21,72,12
+    LTEXT           "Physical Address",-1,19,36,60,8
+    EDITTEXT        IDPADD,19,51,73,12
+    DEFPUSHBUTTON   "OK",IDOK,20,70,32,14,WS_GROUP
+    DEFPUSHBUTTON   "CANCEL",IDCANCEL,61,71,32,14,WS_GROUP
+END
+
