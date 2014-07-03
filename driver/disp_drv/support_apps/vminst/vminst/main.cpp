@@ -274,8 +274,8 @@ int UnInstallDriver(HDEVINFO h, SP_DEVINFO_DATA *dev_info_data)
 
 static void usage(_TCHAR *argv[])
 {
-	logPrint("%s -i\t install driver\n", argv[0] );
-	logPrint("%s -u\t uninstall driver\n", argv[0]);
+	logPrint("%s -i\t install driver [reboot]\n", argv[0] );
+	logPrint("%s -u\t uninstall driver [reboot]\n", argv[0]);
 	logPrint("%s -h\t show help\n", argv[0]);
 }
 
@@ -931,6 +931,8 @@ out:
 
 int __cdecl _tmain(int argc, _TCHAR *argv[])
 {
+	int flg_reboot_dialog=FALSE;
+
 	//1. 64비트와 32비트의 구분
 	if (IsWow64()) {
 		logPrint("This program run for 32bit Windows.\n");
@@ -956,6 +958,9 @@ int __cdecl _tmain(int argc, _TCHAR *argv[])
 		}
 	}
 
+	if(argc == 3 && !strcmp(argv[2],"reboot"))
+		flg_reboot_dialog = TRUE;
+
 	if (!strcmp(argv[1], "-i")) {
 		DWORD exitCode;
 		BOOL bDevice = FALSE;
@@ -970,14 +975,17 @@ int __cdecl _tmain(int argc, _TCHAR *argv[])
 		FixInfFile(INF);
 
 		// devcon을 통한 3회의 드라이버 추가
+		logPrint("installing driver files... 1\n");
 		if(!executeCommandLine("devcon.exe install "INF" "DRIVER_NAME, exitCode))
 		{
 			printf("execute Command Failed! %d\n",exitCode);
 		}
+		logPrint("installing driver files... 2\n");
 		if(!executeCommandLine("devcon.exe install "INF" "DRIVER_NAME, exitCode))
 		{
 			printf("execute Command Failed! %d\n",exitCode);
 		}
+		logPrint("installing driver files... 3\n");
 		if(!executeCommandLine("devcon.exe install "INF" "DRIVER_NAME, exitCode))
 		{
 			printf("execute Command Failed! %d\n",exitCode);
@@ -1006,18 +1014,24 @@ int __cdecl _tmain(int argc, _TCHAR *argv[])
 //			logPrint("Driver installed Status: %x, problem: %x\n", status, problem);
 			logPrint("Please reboot your system\n");
 		} else {
-			logPrint("Driver installed successful\n");
+			logPrint("Driver installed successful.\n");
 		}
 		// 리붓 할까요 ?
 		if (isVista || isWin7) {
 			int res;
-			res = MessageBox(NULL,"Driver installed successful. You should reboot the system for the driver operating properly. Do you wnat to reboot now?","Reboot required",MB_YESNO);
-			if(res == IDYES)
-			{	//reboot code
-				rebootSystem();
+
+			if(flg_reboot_dialog)
+			{
+				res = MessageBox(NULL,"Driver installed successful. You should reboot the system for the driver operating properly. Do you wnat to reboot now?","Reboot required",MB_YESNO);
+				if(res == IDYES)
+				{	//reboot code
+					rebootSystem();
+				}
+				else
+					logPrint("Please reboot your system\n");
 			}
 			else
-				logPrint("Please reboot your system\n");
+				logPrint(" You should reboot the system for the driver operating properly.\n");
 		}
 	}
 	else if(!strcmp(argv[1], "-u")) {
@@ -1037,12 +1051,16 @@ int __cdecl _tmain(int argc, _TCHAR *argv[])
 		}
 		RegClean();
 		logPrint("Driver Uninstalled sucessful. Remaining files and settings will be removed at next booting time.\n");
-		res = MessageBox(NULL,"Driver Uninstalled sucessful. Remaining files and settings will be removed at next booting time. Do you wnat to reboot now?","Reboot required",MB_YESNO);
-		if(res == IDYES)
-		{	//reboot code
-			rebootSystem();
+
+		if(flg_reboot_dialog)	
+		{
+			res = MessageBox(NULL,"Driver Uninstalled sucessful. Remaining files and settings will be removed at next booting time. Do you wnat to reboot now?","Reboot required",MB_YESNO);
+			if(res == IDYES)
+			{	//reboot code
+				rebootSystem();
+			}
+			else
+				logPrint("Please reboot your system\n");
 		}
-		else
-			logPrint("Please reboot your system\n");
 	}
 }
