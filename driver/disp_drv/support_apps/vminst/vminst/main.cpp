@@ -1022,7 +1022,7 @@ int __cdecl _tmain(int argc, _TCHAR *argv[])
 
 			if(flg_reboot_dialog)
 			{
-				res = MessageBox(NULL,"Driver installed successful. You should reboot the system for the driver operating properly. Do you wnat to reboot now?","Reboot required",MB_YESNO);
+				res = MessageBox(NULL,"Driver installed successful. You should reboot the system for the driver operating properly. Do you wnat to reboot now?\n","Reboot required",MB_YESNO);
 				if(res == IDYES)
 				{	//reboot code
 					rebootSystem();
