@@ -1,0 +1,22 @@
+"this is 32bit windows only version, and do not support Windows 8 and later."
+
+V-Desk is a program that make a virtual monitors you can use a general monitor.
+This is pre-released version.
+
+If you want to know more information, follow below links.
+
+After the program install, you should configurate the file named "setting.ini".
+the file is located at "C:\Program Files\V-Desk\program\setting.ini"
+You edit executeArgument in Launcher section.
+(-popupwindow and adapter number(now 0, you should changed this number to oculus dk2's adapter))
+
+We doesn't test this setup program with Oculus DK2.
+
+
+Any questions and Opinions you have, contact to us via websites and mail.
+
+Thanks.
+
+Email : hellovdesk@gmail.com, turboce@gmail.com(PM)
+Facebook page : http://www.facebook.com/vdeskpage
+Homepage : http://vdeskvr.github.io/vdesk
